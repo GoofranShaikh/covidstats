@@ -26,9 +26,9 @@ export class WorldCovidDetailsComponent implements OnInit {
     };
     console.log(`selected ${this.cases.category}`)
     this.countrySub = this._router.params.subscribe((params: Params) => {
-      console.log(params);
+     // console.log(params);
       if (params['country']) {
-        console.log('params country');
+        //console.log('params country');
         this.getCovidDetails(params['country']);
 
         //console.log(params)
@@ -40,7 +40,7 @@ export class WorldCovidDetailsComponent implements OnInit {
   }
   onSubmit(query: NgForm) {
     this._route.navigate(['search', query.value.search]);
-    console.log(this._route.url);
+   // console.log(this._route.url);
   }
   getCovidDetails(country?:string): void {
       this._common.statistics(country).subscribe((data: any) => {
@@ -48,7 +48,7 @@ export class WorldCovidDetailsComponent implements OnInit {
         //console.log(this.countryCase);
         this.countryCase.filter((e: any) => {
           if (e.country == 'India') {
-            console.log(e.country, 'active cases', e.cases.active);
+           // console.log(e.country, 'active cases', e.cases.active);
           }
         });
       });
@@ -56,9 +56,6 @@ export class WorldCovidDetailsComponent implements OnInit {
 
 
   }
-  cassesCategory(){
-    console.log(this.cases.category)
-    console.log(this.cases.death)
-  }
+
 
 }

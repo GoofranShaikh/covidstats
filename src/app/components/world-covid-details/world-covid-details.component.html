@@ -18,14 +18,14 @@
           <th>continent</th>
           <th>country</th>
           <th>population</th>
-          <th><select name="category" id="category"  [(ngModel)]='cases.category'(change)='cassesCategory()'>total
+          <th><select name="category" id="category"  [(ngModel)]='cases.category'>total
           <option value="new" ><th>new </th></option>
           <option value="total_cases" ><th>total_cases </th></option>
           <option value="active"><th>active </th></option>
           <option value="critical"><th>critical </th></option>
           <option value="recovered"><th>recovered </th></option>
           </select> </th>
-          <th><select name="death" id="death" [(ngModel)]='cases.death' (change)='cassesCategory()'>
+          <th><select name="death" id="death" [(ngModel)]='cases.death' >
             death
           <option value="total_deaths"><th>total_deaths</th></option>
           <option value="new_deaths"><th>new_deaths</th></option>
