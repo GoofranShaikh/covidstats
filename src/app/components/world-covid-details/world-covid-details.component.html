@@ -1,0 +1,58 @@
+<div class="header">
+<span routerLink=''>Covid Stats</span>
+    <form class="search-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
+      
+      <input type="text"
+ class="search-bar"
+ ngModel
+ name="search"
+ placeholder="search by country name">
+
+      <button type="submit" class="search-button" >Search</button>
+
+    </form>
+  </div>
+    <div class="container">
+      <table>
+        <tr>
+          <th>continent</th>
+          <th>country</th>
+          <th>population</th>
+          <th><select name="category" id="category"  [(ngModel)]='cases.category'(change)='cassesCategory()'>total
+          <option value="new" ><th>new </th></option>
+          <option value="total_cases" ><th>total_cases </th></option>
+          <option value="active"><th>active </th></option>
+          <option value="critical"><th>critical </th></option>
+          <option value="recovered"><th>recovered </th></option>
+          </select> </th>
+          <th><select name="death" id="death" [(ngModel)]='cases.death' (change)='cassesCategory()'>
+            death
+          <option value="total_deaths"><th>total_deaths</th></option>
+          <option value="new_deaths"><th>new_deaths</th></option>
+        </select></th>
+          <th>total_tests</th>
+          <th>Day</th>
+          <th>Time</th>
+        </tr>
+        <tr *ngFor="let case of countryCase">
+          <td *ngIf='case.continent==null'>null</td>
+          <td *ngIf='case.continent!=null'>{{case.continent}}</td>
+          <td>{{case.country}}</td>
+          <td>{{case.population}}</td>
+          <td *ngIf="cases.category=='new'">{{case.cases.new}} </td>
+          <td *ngIf="cases.category=='total_cases'" >{{case.cases.total}} </td>
+          <td *ngIf="cases.category=='active'">{{case.cases.active}} </td>
+          <td *ngIf="cases.category=='critical'">{{case.cases.critical}} </td>
+          <td *ngIf="cases.category=='recovered'">{{case.cases.recovered}} </td>
+          <td *ngIf="cases.death=='total_deaths'">{{case.deaths.total}}</td>
+          <td *ngIf="cases.death=='new_deaths'">{{case.deaths.new}}</td>
+          <!-- <td *ngIf='case.deaths.total==null'>null</td> -->
+          <td>{{case.tests.total}}</td>
+          <td>{{case.day}}</td>
+          <td>{{case.time | date:'h:mm a ' }}</td>
+
+
+        </tr>
+
+      </table>
+    </div>
